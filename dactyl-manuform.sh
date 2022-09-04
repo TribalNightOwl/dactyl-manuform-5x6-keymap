@@ -36,7 +36,13 @@ build(){
 
 flash(){
     update
+    printf "Disconnect interconnector (RJ9)"
+    printf "Connect USB to left side"
     util/docker_build.sh "${KEYBOARD}":"${MYKEYMAP_NAME}":flash
+    printf "Connect USB to right side"
+    util/docker_build.sh "${KEYBOARD}":"${MYKEYMAP_NAME}":flash
+    printf "Connect USB to left side"
+    printf "Re-connect interconnector (RJ9)"
 }
 
 "$@"
