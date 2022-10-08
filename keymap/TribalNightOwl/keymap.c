@@ -4,11 +4,12 @@
 #include "tapdances.h"
 
 #define _QWERTY 0
-#define _LOWER 1 // NUMB
-#define _RAISE 2 // MOVE
+#define _NUMB 1
+#define _MOVE 2
+#define _GAME 3
 
-#define MOVE MO(_RAISE)
-#define NUMB MO(_LOWER)
+#define MOVE MO(_MOVE)
+#define NUMB MO(_NUMB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_5x6(
@@ -22,8 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                       KC_DOWN , KC_UP   ,                                           KC_LEFT , KC_RIGHT
     ),
 
-    // NUMB
-    [_LOWER] = LAYOUT_5x6(
+    [_NUMB] = LAYOUT_5x6(
         KC_ESC  , _______ , _______      , _______      , _______        , TO(_QWERTY) ,                    _______ , _______          , _______      , _______      , _______ , KC_F12                    ,
         _______ , KC_F1   , KC_F1        , KC_F3        , KC_F4          , KC_F5       ,                    KC_F6   , KC_F7            , KC_F8        , KC_F9        , KC_F10  , KC_F11                    ,
         _______ , KC_1    , LALT_T(KC_2) , LCTL_T(KC_3) , LSFT_T(KC_4)   , KC_5        ,                    KC_6    , RSFT_T(KC_7)     , RCTL_T(KC_8) , LALT_T(KC_9) , KC_0    , TD(CT_MINUS_UNDSCR_EQUAL) ,
@@ -35,8 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     ),
 
-    // MOVE
-    [_RAISE] = LAYOUT_5x6(
+    [_MOVE] = LAYOUT_5x6(
           _______ , _______ , _______ , _______ , _______ , TO(_QWERTY),                             _______  , _______ , _______ , _______ , _______ , _______ ,
           _______ , KC_NO   , KC_WH_L , KC_MS_U , KC_WH_R , KC_WH_U    ,                             KC_PGUP  , KC_HOME , KC_UP   , KC_END  , KC_NO   , _______ ,
           KC_BTN2 , KC_BTN1 , KC_MS_L , KC_MS_D , KC_MS_R , KC_WH_D    ,                             KC_PGDN  , KC_LEFT , KC_DOWN , KC_RIGHT, KC_NO   , _______ ,
