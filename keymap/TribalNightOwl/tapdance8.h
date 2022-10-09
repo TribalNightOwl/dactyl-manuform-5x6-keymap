@@ -1,7 +1,7 @@
 /*
- * SINGLE_TAP  = tmux prefix
+ * SINGLE_TAP  = ESC
  * SINGLE_HOLD = tmux copy mode
- * DOUBLE_TAP  = tmux copy
+ * DOUBLE_TAP  = tmux prefix
  * DOUBLE_HOLD = tmux paste
  *
  */
@@ -15,9 +15,9 @@ static tap dance8_state = {
 void dance8_finished (qk_tap_dance_state_t *state, void *user_data) {
   dance8_state.state = cur_dance(state);
   switch (dance8_state.state) {
-    case SINGLE_TAP:  register_code(KC_LCTL); register_code(KC_B); break;
+    case SINGLE_TAP:  register_code(KC_ESC); break;
     case SINGLE_HOLD: register_code(KC_LCTL); register_code(KC_B); unregister_code(KC_LCTL); unregister_code(KC_B); register_code(KC_LBRACKET); break;
-    case DOUBLE_TAP:  register_code(KC_LCTL); register_code(KC_W); break;
+    case DOUBLE_TAP:  register_code(KC_LCTL); register_code(KC_B); break;
     case DOUBLE_HOLD: register_code(KC_LCTL); register_code(KC_B); unregister_code(KC_LCTL); unregister_code(KC_B); register_code(KC_RBRACKET); break;
     case DOUBLE_SINGLE_TAP: register_code(KC_NO);
     //Last case is for fast typing. Assuming your key is `f`:
@@ -28,9 +28,9 @@ void dance8_finished (qk_tap_dance_state_t *state, void *user_data) {
 
 void dance8_reset (qk_tap_dance_state_t *state, void *user_data) {
   switch (dance8_state.state) {
-    case SINGLE_TAP:  unregister_code(KC_LCTL); unregister_code(KC_B); break;
+    case SINGLE_TAP:  unregister_code(KC_ESC); break;
     case SINGLE_HOLD: unregister_code(KC_LBRACKET); break;
-    case DOUBLE_TAP:  unregister_code(KC_LCTL); unregister_code(KC_W); break;
+    case DOUBLE_TAP:  unregister_code(KC_LCTL); unregister_code(KC_B); break;
     case DOUBLE_HOLD: unregister_code(KC_RBRACKET); break;
     case DOUBLE_SINGLE_TAP: unregister_code(KC_NO);
   }
