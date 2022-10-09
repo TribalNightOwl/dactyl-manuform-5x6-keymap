@@ -17,7 +17,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_INS , KC_Q    , ALT_T(KC_W), CTL_T(KC_E)                 , LSFT_T(KC_R) , KC_T  ,                         KC_Y          , RSFT_T(KC_U), RCTL_T(KC_I)                , LALT_T(KC_O)                , KC_P                      , _______,
         KC_DELT, KC_A    , ALT_T(KC_S), LCMD_T(KC_D)                , LSFT_T(KC_F) , KC_G  ,                         KC_H          , RSFT_T(KC_J), RCMD_T(KC_K)                , LALT_T(KC_L)                , TD(CT_MINUS_UNDSCR_EQUAL) , KC_GRAVE,
         _______, KC_Z    , KC_X       , KC_C                        , KC_V         , LT(MOVE,KC_B) ,                 LT(MOVE,KC_N) , KC_M        , TD(CT_COMM_SCLN)            , TD(CT_DOT_CLN)              , TD(CT_SLSH_PIPE_BSLSH)    , _______,
-                           KC_ESC     , TD(CT_LPRN_LBRC_LCBR_LTHAN) ,                                                                              TD(CT_RPRN_RBRC_RCBR_GTHAN) , TD(CT_SQTE_DQTE_BQTE_CARET) ,
+                           TD(CT_TMUX), TD(CT_LPRN_LBRC_LCBR_LTHAN) ,                                                                              TD(CT_RPRN_RBRC_RCBR_GTHAN) , TD(CT_SQTE_DQTE_BQTE_CARET) ,
                                                       TT(MOVE), KC_BSPC ,                                           KC_SPC  , OSM(MOD_RSFT) ,
                                                       NUMB    , KC_TAB  ,                                           KC_ENT  , TD(CT_TMUX) ,
                                                       KC_DOWN , KC_UP   ,                                           KC_LEFT , KC_RIGHT
