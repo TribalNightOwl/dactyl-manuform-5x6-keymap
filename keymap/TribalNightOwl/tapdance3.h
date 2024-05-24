@@ -7,8 +7,8 @@
  */
 
 #define SINGLE_TAP_KC  {register_code(KC_SLSH);}
-#define SINGLE_HOLD_KC {register_code(KC_LSFT); register_code(KC_BSLASH);}
-#define DOUBLE_TAP_KC  {register_code(KC_BSLASH);}
+#define SINGLE_HOLD_KC {register_code(KC_LSFT); register_code(KC_BACKSLASH);}
+#define DOUBLE_TAP_KC  {register_code(KC_BACKSLASH);}
 #define DOUBLE_HOLD_KC {register_code(KC_NO);}
 
 //instance of 'tap' for this tap dance.
@@ -17,7 +17,7 @@ static tap dance3_state = {
   .state = 0
 };
 
-void dance3_finished (qk_tap_dance_state_t *state, void *user_data) {
+void dance3_finished (tap_dance_state_t *state, void *user_data) {
   dance3_state.state = cur_dance(state);
   switch (dance3_state.state) {
     case SINGLE_TAP:  SINGLE_TAP_KC break;
@@ -31,11 +31,11 @@ void dance3_finished (qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void dance3_reset (qk_tap_dance_state_t *state, void *user_data) {
+void dance3_reset (tap_dance_state_t *state, void *user_data) {
   switch (dance3_state.state) {
     case SINGLE_TAP: unregister_code(KC_SLSH); break;
-    case SINGLE_HOLD: unregister_code(KC_LSFT), unregister_code(KC_BSLASH); break;
-    case DOUBLE_TAP: unregister_code(KC_BSLASH); break;
+    case SINGLE_HOLD: unregister_code(KC_LSFT), unregister_code(KC_BACKSLASH); break;
+    case DOUBLE_TAP: unregister_code(KC_BACKSLASH); break;
     case DOUBLE_HOLD: unregister_code(KC_NO);
     case DOUBLE_SINGLE_TAP: unregister_code(KC_SLSH);
   }

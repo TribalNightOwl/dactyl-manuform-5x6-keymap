@@ -1,5 +1,5 @@
 // 1 tap , 2 tap ;
-void dance2_finished (qk_tap_dance_state_t *state, void *user_data) {
+void dance2_finished (tap_dance_state_t *state, void *user_data) {
   if (state->count == 1) {
     register_code (KC_COMM);
   } else {
@@ -7,7 +7,7 @@ void dance2_finished (qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void dance2_reset (qk_tap_dance_state_t *state, void *user_data) {
+void dance2_reset (tap_dance_state_t *state, void *user_data) {
   if (state->count == 1) {
     unregister_code (KC_COMM);
   } else {

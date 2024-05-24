@@ -12,7 +12,7 @@ static tap dance7_state = {
   .state = 0
 };
 
-void dance7_finished (qk_tap_dance_state_t *state, void *user_data) {
+void dance7_finished (tap_dance_state_t *state, void *user_data) {
   dance7_state.state = cur_dance(state);
   switch (dance7_state.state) {
     case SINGLE_TAP:  register_code(KC_QUOT); break;
@@ -26,7 +26,7 @@ void dance7_finished (qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void dance7_reset (qk_tap_dance_state_t *state, void *user_data) {
+void dance7_reset (tap_dance_state_t *state, void *user_data) {
   switch (dance7_state.state) {
     case SINGLE_TAP:  unregister_code(KC_QUOT);    break;
     case SINGLE_HOLD: unregister_code(KC_GRV);                         break;

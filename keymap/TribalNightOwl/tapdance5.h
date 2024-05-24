@@ -11,7 +11,7 @@ static tap dance5_state = {
   .state = 0
 };
 
-void dance5_finished (qk_tap_dance_state_t *state, void *user_data) {
+void dance5_finished (tap_dance_state_t *state, void *user_data) {
   dance5_state.state = cur_dance(state);
   switch (dance5_state.state) {
     case SINGLE_TAP:  register_code(KC_LSFT); register_code(KC_9);    break;
@@ -25,7 +25,7 @@ void dance5_finished (qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void dance5_reset (qk_tap_dance_state_t *state, void *user_data) {
+void dance5_reset (tap_dance_state_t *state, void *user_data) {
   switch (dance5_state.state) {
     case SINGLE_TAP:  unregister_code(KC_LSFT); unregister_code(KC_9);    break;
     case SINGLE_HOLD: unregister_code(KC_LBRC);                         break;

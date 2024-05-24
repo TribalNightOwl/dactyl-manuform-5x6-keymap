@@ -27,7 +27,7 @@ typedef struct {
   int state;
 } tap;
 
-int cur_dance (qk_tap_dance_state_t *state) {
+int cur_dance (tap_dance_state_t *state) {
   if (state->count == 1) {
     //If count = 1, and it has been interrupted - it doesn't matter if it is pressed or not: Send SINGLE_TAP
     if (state->interrupted || state->pressed==0) return SINGLE_TAP;
@@ -54,7 +54,7 @@ int cur_dance (qk_tap_dance_state_t *state) {
 #include "tapdance7.h"
 #include "tapdance8.h"
 
-void dance_egg (qk_tap_dance_state_t *state, void *user_data) {
+void dance_egg (tap_dance_state_t *state, void *user_data) {
   if (state->count >= 4) {
     SEND_STRING ("Safety dance!");
     reset_tap_dance (state);
@@ -62,7 +62,7 @@ void dance_egg (qk_tap_dance_state_t *state, void *user_data) {
 }
 
 //All tap dance functions would go here. Only showing this one.
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
  TAPDANCE1(CT_DOT_CLN),
  TAPDANCE2(CT_COMM_SCLN),
  TAPDANCE3(CT_SLSH_PIPE_BSLSH),
